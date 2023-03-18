@@ -1,0 +1,115 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  padding: 1rem 2rem 0;
+  min-height: 100vh;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  position: relative;
+  padding: 4rem 4rem 0;
+}
+
+.footer{
+  position: relative;
+  width: 100%;
+  height: 5rem;
+}
+
+.next {
+  display: flex;
+  position: absolute;
+  /* margin: auto; */
+  left: 50%;
+  margin-left: -3rem;
+  /* bottom: 0rem; */
+  width: 6rem;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation-duration: 2s;
+  animation-name: dance;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes dance {
+  from {
+      bottom: 0;
+  }
+  to {
+      bottom: 0.8rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  /* /* .content {
+    padding: 4rem;
+  } */
+
+  .center {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 2rem;
+  }
+
+  .center div {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  .center .down {
+    flex-direction: column-reverse;
+  }
+  .text span i{
+    margin-left: 3rem;
+  }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {
+  
+  .center {
+    /* flex-direction: column; */
+    align-items: center;
+    /* padding: 0 0 6rem; */
+  }
+
+  .center div {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+  .center .down {
+    flex-direction: column-reverse;
+  }
+
+  .image {
+    width: 40rem;
+    height: 20rem;
+    margin-bottom: 1rem;
+  }
+  .text span i {
+    margin-left: 23rem;
+  }
+
+  
+}
+
+@media (prefers-color-scheme: dark) {
+  .vercelLogo {
+    filter: invert(1);
+  }
+  .logo,
+  .thirteen img {
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+  }
+}

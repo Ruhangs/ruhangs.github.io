@@ -1,11 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
+import axios from 'axios'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './Skill.module.css'
 
 
-export default function Skill() {
+export default function Skill(props:any) {
+  console.log(props)
   return (
     <>
       <Head>
@@ -18,7 +20,7 @@ export default function Skill() {
       <main className={styles.main}>
         <Link href={"education"}>
           <div className={styles.footer}>
-            <div className={styles.next}>
+            <div className={styles.up}>
               <Image src="/up.svg" alt='向上继续' width={40} height={40} priority/>
               <h3 >
                 教育经历
@@ -28,7 +30,40 @@ export default function Skill() {
         </Link>
 
         <div className={styles.center}>
-          <h1>中间部分</h1>
+          {/* <h1>中间部分</h1> */}
+          <div className={styles.familiar}>
+            <ul>
+              <li > 
+                <Image src="/skill/css.svg" alt='' width={40} height={40} priority />
+                <span>熟练使用css</span>
+              </li>
+              <li>
+                <Image src="/skill/html.svg" alt='' width={40} height={40} priority />
+              </li>
+              <li>
+                <Image src="/skill/js.svg" alt='' width={40} height={40} priority />
+              </li>
+              <li>
+                <Image src="/skill/react.svg" alt='' width={40} height={40} priority />
+              </li>
+              <li>
+                <Image src="/skill/http.svg" alt='' width={40} height={40} priority />
+              </li>
+              <li>
+                <Image src="/skill/git.svg" alt='' width={40} height={40} priority />
+              </li>
+            </ul>
+          </div>
+          <div className={styles.understand}>
+            <ul>
+              <li>
+                <Image src="/skill/vue.svg" alt='' width={40} height={40} priority />
+              </li>
+              <li>
+                <Image src="/skill/node.svg" alt='' width={40} height={40} priority />
+              </li>
+            </ul>
+          </div>
         </div>
 
         <Link href={"project"}>

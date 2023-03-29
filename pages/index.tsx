@@ -29,24 +29,30 @@ export default function Home(props:any) {
 
         <div className={styles.center}>
           <div className={styles.avatar}>
-            <img className={styles.logo} src="/avatar.jpg" alt="证件照"  />
+            <img className={styles.logo} src="/avatar.jpg" alt="avatar"  />
           </div>
           
-          <div className={styles.intro}>
-            <ul >
+          <div >
+            <ul className={styles.intro}>
               <li><h3>{info.name}-{info.position}</h3> </li>
               <li>{`${info.age} | ${info.sex} | ${info.origin} | ${info.politics}`}</li>
               <li>
-                <Image src="/dianhua.svg" alt='电话' width={13} height={13} priority/>
-                {` ${info.phone}`};
+                <a href="tel:+18623212693" className='--time: 1'>
+                  <Image src="/dianhua.svg" alt='电话' width={13} height={13} priority/>
+                  {` ${info.phone}`}
+                </a>
               </li>
               <li>
-                <Image src="/email.svg" alt='邮箱' width={13} height={13} priority/>
-                {` ${info.email}`}
+                <a href="mailto:1241713147@qq.com" className='--time: 2'>
+                  <Image src="/email.svg" alt='邮箱' width={13} height={13} priority/>
+                  {` ${info.email}`}
+                </a>
               </li>
               <li>
-                <Image src="/weixin.svg" alt='微信' width={13} height={13} priority/>
-                {` ${info.wechat}`}
+                <a href="weixin://profile/Jan23-R" className='--time: 3'>
+                  <Image src="/weixin.svg" alt='微信' width={13} height={13} priority/>
+                  {` ${info.wechat}`}
+                </a>
               </li>
               <li>{info.text}</li>
             </ul>

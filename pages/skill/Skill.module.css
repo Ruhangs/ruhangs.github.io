@@ -9,11 +9,32 @@
 
 .center {
   display: flex;
-  flex-direction: column;
   height: 100%;
-  justify-content: space-between;
-  position: relative;
-  padding: 4rem 4rem 0;
+  justify-content: space-evenly;
+  /* position: relative; */
+  padding: 4rem 0 0;
+}
+
+.familiar {
+  display: flex;
+  flex-direction: row;
+  width: 20rem;
+  height: 30rem;
+  /* background-color: pink; */
+}
+
+.familiar ul li{
+  height: 4rem;
+}
+.familiar ul li span{
+  height: 4rem;
+  line-height: 4rem;
+}
+
+.understand {
+  width: 20rem;
+  height: 30rem;
+  /* background-color: skyblue; */
 }
 
 .footer{
@@ -25,10 +46,8 @@
 .next {
   display: flex;
   position: absolute;
-  /* margin: auto; */
   left: 50%;
   margin-left: -3rem;
-  /* bottom: 0rem; */
   width: 6rem;
   height: 100%;
   flex-direction: column;

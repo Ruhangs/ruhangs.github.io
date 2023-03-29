@@ -1,11 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
+import axios from 'axios'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './Education.module.css'
 
 
-export default function Education() {
+export default function Education(props:any) {
+  const { education } = props
+  console.log(education)
   return (
     <>
       <Head>
@@ -18,7 +21,7 @@ export default function Education() {
       <main className={styles.main}>
         <Link href={"/"}>
           <div className={styles.footer}>
-            <div className={styles.next}>
+            <div className={styles.back}>
               <Image src="/up.svg" alt='向上继续' width={40} height={40} priority/>
               <h3 >
                 个人简介
@@ -28,29 +31,27 @@ export default function Education() {
         </Link>
 
         <div className={styles.center}>
-          <div className={styles.up}>
-            <img className={styles.image} src="kmlg.png" alt="" />
-            <div className={styles.text}>
-              <span>昆明理工大学 <i>2017.09-2021.07</i> </span>
-              <h5>计算机科学与技术 | 本科</h5>
-              <ul>
-                <li>xxx</li>
-                <li>xxx</li>
-              </ul>
-            </div>
-          </div>
-          <div className={styles.down}>
-            <div className={styles.text}>
-              <span>重庆邮电大学 <i>2021.09-2024.06</i> </span>
-              <h5>计算机技术 | 硕士</h5>
-              <ul>
-                <li>xxx</li>
-                <li>xxx</li>
-              </ul>
-            </div>
-            <img className={styles.image} src="cqyd.png" alt="" />
-          </div>
-          
+          {
+            education.university.length ? 
+            education.university.map((item: any,index: any) => {
+              return (
+                <div key={index} className={ styles.content }>
+                  <img className={styles.image} src={item.imgUrl} alt="" />
+                  <div className={styles.text}>
+                    <span>{item.name} <i>{item.start}-{item.end}</i> </span>
+                    <h5>{item.major} | {item.degree}</h5>
+                    <ul>
+                      {
+                        item.glory.map((item: any, index: any) => {
+                          return <li key={index}>{item}</li>
+                        })
+                      }
+                    </ul>
+                  </div>
+                </div>
+                )
+            }) : null
+          }      
         </div>
 
         <Link href={"skill"}>
@@ -66,4 +67,17 @@ export default function Education() {
       </main>
     </>
   )
+}
+
+export async function getStaticProps(){
+  const education = await axios.get('http://localhost:3000/api/education').then((res) => {
+    return res.data
+  })
+  // console.log(stringify(education))
+  return {
+    props:{
+      // stringify(education)
+      education
+    }
+  }
 }

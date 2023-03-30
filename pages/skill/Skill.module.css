@@ -19,21 +19,22 @@
   display: flex;
   flex-direction: row;
   width: 20rem;
-  height: 30rem;
+  /* height: 30rem; */
   /* background-color: pink; */
 }
 
-.familiar ul li{
+.center ul li{
+  display: flex;
+  align-items: center;
   height: 4rem;
 }
-.familiar ul li span{
-  height: 4rem;
-  line-height: 4rem;
+.center ul li span{
+  margin-left: 2rem;
 }
 
 .understand {
   width: 20rem;
-  height: 30rem;
+  /* height: 30rem; */
   /* background-color: skyblue; */
 }
 
@@ -53,18 +54,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation-duration: 2s;
-  animation-name: dance;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation: dance 2s ease-in-out infinite;
+}
+
+.back {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  margin-left: -3rem;
+  width: 6rem;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: dance 2s ease-in-out infinite;
+  animation-delay: 1s;
 }
 
 @keyframes dance {
-  from {
-      bottom: 0;
+  0% {
+    transform: translateY(0);
   }
-  to {
-      bottom: 0.8rem;
+  50% {
+    transform: translateY(-0.8rem);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 

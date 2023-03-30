@@ -8,7 +8,6 @@ import styles from './Education.module.css'
 
 export default function Education(props:any) {
   const { education } = props
-  console.log(education)
   return (
     <>
       <Head>
@@ -32,8 +31,8 @@ export default function Education(props:any) {
 
         <div className={styles.center}>
           {
-            education.university.length ? 
-            education.university.map((item: any,index: any) => {
+            education.length ? 
+            education.map((item: any,index: any) => {
               return (
                 <div key={index} className={ styles.content }>
                   <img className={styles.image} src={item.imgUrl} alt="" />
@@ -71,12 +70,11 @@ export default function Education(props:any) {
 
 export async function getStaticProps(){
   const education = await axios.get('http://localhost:3000/api/education').then((res) => {
-    return res.data
+    console.log(res.data)
+    return res.data.data
   })
-  // console.log(stringify(education))
   return {
     props:{
-      // stringify(education)
       education
     }
   }

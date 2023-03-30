@@ -35,7 +35,7 @@ export default function Home(props:any) {
           <div >
             <ul className={styles.intro}>
               <li><h3>{info.name}-{info.position}</h3> </li>
-              <li>{`${info.age} | ${info.sex} | ${info.origin} | ${info.politics}`}</li>
+              <li>{`${info.age} | ${info.sex === "-1" ? '男' : '女'} | ${info.origin} | ${info.politics}`}</li>
               <li>
                 <a href="tel:+18623212693" className='--time: 1'>
                   <Image src="/dianhua.svg" alt='电话' width={13} height={13} priority/>
@@ -54,7 +54,7 @@ export default function Home(props:any) {
                   {` ${info.wechat}`}
                 </a>
               </li>
-              <li>{info.text}</li>
+              <li>{info.describe}</li>
             </ul>
           </div>
         </div>
@@ -79,8 +79,9 @@ export async function getServerSideProps() {
 
   // const res = await fetch("https://dummyjson.com/products")
   // const resJson = await res.json()
-  const info = await axios.get("http://localhost:3000/api/home").then((res) => {
-    return res.data
+  const info = await axios.get("http://localhost:3000/api/user").then((res) => {
+    console.log(res.data)
+    return res.data.data[0]
   })
   return {
     props:{

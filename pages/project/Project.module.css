@@ -22,6 +22,34 @@
   position: relative;
   padding: 4rem 4rem 0;
 }
+.content {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: space-evenly;
+  /* opacity: 0; */
+  animation: slideLeft 2s ease forwards;
+}
+
+.text span {
+  font-size: large;
+  font-weight: bold;
+}
+
+.text h5 {
+  /* font-family: 'Courier New'; */
+  color: rgb(138, 137, 137);
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.text span i{
+  float: right;
+}
+
+.text ul li {
+  margin-left: 1rem;
+  list-style: disc;
+}
 
 .footer{
   display: flex;
@@ -30,7 +58,7 @@
   height: 5rem;
 }
 
-.next {
+.back {
   display: flex;
   position: absolute;
   /* margin: auto; */
@@ -42,21 +70,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation-duration: 2s;
-  animation-name: dance;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation: dance 2s ease-in-out infinite;
 }
 
 @keyframes dance {
-  from {
-      bottom: 0;
+  0% {
+    transform: translateY(0);
   }
-  to {
-      bottom: 0.8rem;
+  50% {
+    transform: translateY(-0.8rem);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
-
 /* Mobile */
 @media (max-width: 700px) {
   /* /* .content {
@@ -78,8 +105,19 @@
   .center .down {
     flex-direction: column-reverse;
   }
+
+  .content img {
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+
+  .text span {
+    display: block;
+  }
   .text span i{
-    margin-left: 3rem;
+    display: block;
+    float: none;
+    font-size: 1rem;
   }
 }
 
@@ -101,15 +139,10 @@
   }
 
   .image {
-    width: 40rem;
-    height: 20rem;
-    margin-bottom: 1rem;
-  }
-  .text span i {
-    margin-left: 23rem;
-  }
-
-  
+    width: 100%;
+    height: 10rem;
+    margin-bottom: 2rem;
+  } 
 }
 
 @media (prefers-color-scheme: dark) {

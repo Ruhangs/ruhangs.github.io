@@ -20,7 +20,7 @@ export default function Skill(props:any) {
       <main className={styles.main}>
         <Link href={"education"}>
           <div className={styles.footer}>
-            <div className={styles.up}>
+            <div className={styles.back}>
               <Image src="/up.svg" alt='向上继续' width={40} height={40} priority/>
               <h3 >
                 教育经历
@@ -33,24 +33,29 @@ export default function Skill(props:any) {
           {/* <h1>中间部分</h1> */}
           <div className={styles.familiar}>
             <ul>
-              <li > 
+              <li className={styles.skill}> 
                 <Image src="/skill/css.svg" alt='' width={40} height={40} priority />
                 <span>熟练使用css</span>
               </li>
               <li>
                 <Image src="/skill/html.svg" alt='' width={40} height={40} priority />
+                <span>熟悉html5新增的语义化标签以及使用场景</span>
               </li>
               <li>
                 <Image src="/skill/js.svg" alt='' width={40} height={40} priority />
+                <span>熟悉es6相关语法</span>
               </li>
               <li>
                 <Image src="/skill/react.svg" alt='' width={40} height={40} priority />
+                <span>熟悉react以及react相关的技术栈</span>
               </li>
               <li>
                 <Image src="/skill/http.svg" alt='' width={40} height={40} priority />
+                <span>熟悉TCP,UDP,HTTP,DNS等网络协议</span>
               </li>
               <li>
                 <Image src="/skill/git.svg" alt='' width={40} height={40} priority />
+                <span>熟练使用git进行项目管理</span>
               </li>
             </ul>
           </div>
@@ -58,9 +63,11 @@ export default function Skill(props:any) {
             <ul>
               <li>
                 <Image src="/skill/vue.svg" alt='' width={40} height={40} priority />
+                <span>了解vue2.0、vue3.0、VitePress文档站</span>
               </li>
               <li>
                 <Image src="/skill/node.svg" alt='' width={40} height={40} priority />
+                <span>了解常用Node模块,以及Express框架的使用</span>
               </li>
             </ul>
           </div>

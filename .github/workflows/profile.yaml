@@ -6,43 +6,26 @@ on:
   workflow_dispatch:
 
 jobs:
-  docs:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
         with:
-          # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
-          fetch-depth: 0
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          # 选择要使用的 pnpm 版本
-          version: 7
-          # 使用 pnpm 安装依赖
-          run_install: true
+          node-version: "16.x"
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          # 选择要使用的 node 版本
-          node-version: 16
-          # 缓存 pnpm 依赖
-          cache: pnpm
+      - name: Installing my packages
+        run: npm ci
 
-      # 运行构建脚本
-      - name: Build Next.js site
-        run: pnpm run build
+      - name: Build my App
+        run: npm run build  && touch ./out/.nojekyll
 
-      # 查看 workflow 的文档来获取更多信息
-      # @see https://github.com/crazy-max/ghaction-github-pages
-      - name: Deploy to GitHub Pages
-        uses: Ruhangs/Profile
+      - name: Deploy 🚀
+        uses: Ruhangs/Profile@0.1.0
         with:
-          # 部署到 gh-pages 分支
-          target_branch: profile
-          # 部署目录为 VuePress 的默认输出目录
-          build_dir: out
-        env:
-          # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: out # The folde

@@ -33,8 +33,12 @@
 
 
 .image {
+  position: relative;
   width: 22rem;
   height: 12rem;
+}
+.text {
+  width: 32rem;
 }
 
 .text span {
@@ -100,6 +104,11 @@
   .center .down {
     flex-direction: column-reverse;
   }
+
+  .text {
+    width: auto;
+  }
+
   .text span i{
     margin-left: 3rem;
   }
@@ -127,6 +136,11 @@
     height: 20rem;
     margin-bottom: 1rem;
   }
+
+  .text {
+    width: 40rem;
+  }
+
   .text span i {
     margin-left: 23rem;
   }

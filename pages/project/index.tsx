@@ -2,10 +2,15 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import styles from './Project.module.css'
 
 
 export default function Skill() {
+  const router = useRouter()
+  if (router.isFallback) {
+    <h1>Data is loading</h1>;
+  }
   return (
     <>
       <Head>
@@ -35,10 +40,10 @@ export default function Skill() {
               <span>仿网易云音乐Webapp <i>2022.12 - 2023.01</i> </span>
               <h5>react | readux | axios | styled-components</h5>
               <ul>
-                <li>经历过2次优化，主要注重性能体验，在2.0版本，打开首页速度提高1倍</li>
                 <li>采用了ES6的语法，采用axios统一处理请求接口</li>
                 <li>基于localStorage的缓存组件开发，可以设置有效时长，适用于Webapp</li>
                 <li>开发Loading，Scroll，Confirm等组件</li>
+                <li>实现了图像的懒加载</li>
               </ul>
             </div>
           </div>

@@ -5,13 +5,18 @@ import Link from 'next/link'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home(props:any) {
 
   const { info } = props
+  const router = useRouter();
 
+  if (router.isFallback) {
+    <h1>Data is loading</h1>;
+  }
   return (
     <>
       <Head>
@@ -74,12 +79,12 @@ export default function Home(props:any) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 
 
   // const res = await fetch("https://dummyjson.com/products")
   // const resJson = await res.json()
-  const info = await axios.get("http://localhost:3000/api/user").then((res) => {
+  const info = await axios.get("http://47.115.201.17:8081/api/user").then((res) => {
     console.log(res.data)
     return res.data.data[0]
   })

@@ -35,7 +35,9 @@ export default function Education(props:any) {
             education.map((item: any,index: any) => {
               return (
                 <div key={index} className={ styles.content }>
-                  <img className={styles.image} src={item.imgUrl} alt="" />
+                  <div className={styles.image}><Image src={item.imgUrl} alt='向上继续' fill priority/></div>
+                  {/* <Image className={styles.image} src={item.imgUrl} alt='向上继续' width={40} height={40} priority/> */}
+                  {/* <img className={styles.image} src={item.imgUrl} alt="" /> */}
                   <div className={styles.text}>
                     <span>{item.name} <i>{item.start}-{item.end}</i> </span>
                     <h5>{item.major} | {item.degree}</h5>
@@ -69,7 +71,7 @@ export default function Education(props:any) {
 }
 
 export async function getStaticProps(){
-  const education = await axios.get('http://localhost:3000/api/education').then((res) => {
+  const education = await axios.get('http://47.115.201.17:8081/api/education').then((res) => {
     console.log(res.data)
     return res.data.data
   })

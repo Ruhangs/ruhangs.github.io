@@ -34,8 +34,8 @@ export default function Skill() {
 
         <div className={styles.center}>
           <div className={ styles.content }>
-            <Image className={styles.image} src="/music.svg" alt='音乐项目' width={150} height={150} priority/>
-            {/* <img className={styles.image} src='/music.svg' alt="项目封面" /> */}
+            <Image className={styles.pic} src="/music.svg" alt='音乐项目' width={150} height={150} priority/>
+            {/* <img className={styles.pic} src='/music.svg' alt="项目封面" /> */}
             <div className={styles.text}>
               <span>仿网易云音乐Webapp <i>2022.12 - 2023.01</i> </span>
               <h5>react | readux | axios | styled-components</h5>
